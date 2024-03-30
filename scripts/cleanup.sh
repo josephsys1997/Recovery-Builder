@@ -11,3 +11,43 @@ sudo rm -rf /opt/*
 sudo rm -rf /usr/share/dotnet
 sudo rm -rf "/usr/local/share/boost"
 sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+
+name: My build action requiring more space
+on: push
+
+jobs:
+  build:
+    name: Build my artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Maximize build space
+        uses: AdityaGarg8/remove-unwanted-software@v2
+        with:
+          remove-android: 'true'
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: |
+          echo "Free space:"
+          df -h
+          remove-dotnet:
+           description: 'Removes .NET runtime and libraries.'
+           required: true 
+           default: 'false'
+          remove-android:
+           description: 'Removes Android SDKs and Tools.'
+           required: false
+           default: 'false'
+          remove-haskell:
+    description: 'Removes GHC (Haskell) artifacts.'
+    required: true
+    default: 'false'
+  remove-codeql:
+    description: 'Removes CodeQL Action Bundles.'
+    required: true
+    default: 'false'
+  remove-docker-images:
+    description: 'Removes cached Docker images.'
+    required: false
+    default: 'false'
