@@ -8,3 +8,6 @@ git config --global user.email ""
 sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* 
 sudo -E apt-get clean
 sudo rm -rf /opt/*
+sudo rm -rf /usr/share/dotnet
+sudo rm -rf "/usr/local/share/boost"
+sudo rm -rf "$AGENT_TOOLSDIRECTORY"
