@@ -6,7 +6,7 @@ export MANIFEST="https://github.com/minimal-manifest-twrp/platform_manifest_twrp
 export BRANCH="twrp-11" # the branch of manifest
 
 # about your device
-export DEVICE="X697" # codename used in device tree
+export DEVICE="Infinix-X697" # codename used in device tree
 export DT_LINK="https://github.com/twrpdtgen/android_device_infinix_Infinix-X697" # device tree link
 export DT_BRANCH="vnd_x697_h812-user-11-RP1A.200720.011-460220-release-keys" # device tree branch
 export VENDOR="infinix" # device manufacturer or vendor
